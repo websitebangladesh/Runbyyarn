@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>run by yarn | Handcrafted Crochet Magic & Fairytale Plushies</title>
+  
+  <!-- Google Fonts: Quicksand for clean body, Fredoka & Sniglet for playful fairy-tale feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rapunzel: {
+              purple: '#844b9b',
+              purpleDark: '#67337c',
+              lavender: '#dfc0ed',
+              lavenderLight: '#f6edfb',
+              gold: '#f7c23b',
+              goldHover: '#e3ad24',
+              goldLight: '#fff5d6',
+              pink: '#f598b9',
+              pinkLight: '#fdeaf1',
+              cream: '#fffdf6',
+              sage: '#89c677',
+            }
+          },
+          fontFamily: {
+            display: ['"Fredoka"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            body: ['"Quicksand"', 'sans-serif'],
+          },
+          boxShadow: {
+            'fairytale': '0 10px 30px -5px rgba(132, 75, 155, 0.18)',
+            'golden': '0 8px 25px -4px rgba(247, 194, 59, 0.45)',
+            'soft': '0 4px 20px -2px rgba(110, 50, 130, 0.08)',
+          },
+          animation: {
+            'float-slow': 'floating 4s ease-in-out infinite',
+            'float-delay': 'floating 5s ease-in-out 2s infinite',
+            'pulse-glow': 'pulseGlow 2.5s infinite',
+            'spin-slow': 'spin 18s linear infinite',
+          },
+          keyframes: {
+            floating: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.85', transform: 'scale(1.08)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom fairy-tale touches */
+    body {
+      background-color: #FFFDF7;
+      color: #4a344d;
+      font-family: 'Quicksand', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Stitched yarn border effect */
+    .yarn-border-dashed {
+      border: 3px dashed #dfc0ed;
+    }
+    
+    .yarn-badge {
+      background-image: radial-gradient(#dfc0ed 15%, transparent 16%), radial-gradient(#dfc0ed 15%, transparent 16%);
+      background-size: 12px 12px;
+      background-position: 0 0, 6px 6px;
+    }
+
+    /* Floating magical lanterns in background */
+    .lantern-bg {
+      position: absolute;
+      width: 32px;
+      height: 42px;
+      background: radial-gradient(circle, #ffe694 10%, #f7c23b 60%, rgba(247, 194, 59, 0) 80%);
+      border-radius: 6px;
+      filter: blur(1px);
+      box-shadow: 0 0 20px 8px rgba(247, 194, 59, 0.5);
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #faf3fc;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cba3dd;
+      border-radius: 10px;
+      border: 2px solid #faf3fc;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #844b9b;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative antialiased selection:bg-rapunzel-lavender selection:text-rapunzel-purpleDark">
+
+  <!-- TOP ROYAL ANNOUNCEMENT BANNER -->
+  <div class="bg-gradient-to-r from-rapunzel-purple via-rapunzel-pink to-rapunzel-purple text-white text-xs sm:text-sm py-2 px-4 text-center font-medium relative z-30 shadow-sm flex items-center justify-center gap-2">
+    <span class="animate-bounce">✨</span>
+    <span><strong>Fairytale Drop!</strong> Free braided scrunchie with all orders over $45 • Code: <strong>LANTERN10</strong> for 10% off</span>
+    <span class="hidden sm:inline">🌸 Handcrafted with 100% Milk Cotton Yarn</span>
+  </div>
+
+  <!-- FLOATING LANTERNS BACKGROUND ATMOSPHERE -->
+  <div class="lantern-bg animate-float-slow top-28 left-8" style="animation-duration: 6s;"></div>
+  <div class="lantern-bg animate-float-delay top-72 right-12" style="animation-duration: 8s;"></div>
+  <div class="lantern-bg animate-float-slow top-[650px] left-[85%]" style="animation-duration: 7s;"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-rapunzel-lavender/60 shadow-soft transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo & Name -->
+        <div class="flex items-center gap-3">
+          <a href="#" class="group flex items-center gap-3.5 focus:outline-none">
+            <div class="relative w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-rapunzel-gold via-rapunzel-pink to-rapunzel-purple shadow-fairytale group-hover:scale-105 transition-transform duration-300">
+              <img 
+                src="https://www.designarena.ai/u/4a8550f2-9608-45e2-a7d3-70e55f12e678" 
+                alt="run by yarn logo - Rapunzel crochet doll" 
+                class="w-full h-full object-cover rounded-full bg-rapunzel-cream"
+              />
+              <span class="absolute -bottom-1 -right-1 text-xs bg-rapunzel-gold text-rapunzel-purpleDark font-bold px-1.5 py-0.5 rounded-full shadow border border-white">
+                🧶
+              </span>
+            </div>
+            <div>
+              <span class="font-display font-bold text-2xl sm:text-3xl tracking-tight text-rapunzel-purpleDark block leading-none">
+                run by yarn
+              </span>
+              <span class="text-xs font-semibold tracking-wider text-rapunzel-purple/80 uppercase font-body flex items-center gap-1 mt-0.5">
+                <span>crochet fairytale atelier</span>
+                <i class="fa-solid fa-sparkles text-[10px] text-rapunzel-gold"></i>
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <button onclick="filterCategory('all')" class="nav-item-link px-3.5 py-2 rounded-full text-sm font-semibold text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight hover:text-rapunzel-purple transition-colors">
+            All Creations
+          </button>
+          <button onclick="filterCategory('dolls')" class="nav-item-link px-3.5 py-2 rounded-full text-sm font-semibold text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight hover:text-rapunzel-purple transition-colors">
+            Princess Dolls
+          </button>
+          <button onclick="filterCategory('hair')" class="nav-item-link px-3.5 py-2 rounded-full text-sm font-semibold text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight hover:text-rapunzel-purple transition-colors">
+            Hair Clips & Magic
+          </button>
+          <button onclick="filterCategory('bags')" class="nav-item-link px-3.5 py-2 rounded-full text-sm font-semibold text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight hover:text-rapunzel-purple transition-colors">
+            Bags & Totes
+          </button>
+          <button onclick="openCustomModal()" class="px-3.5 py-2 rounded-full text-sm font-semibold text-rapunzel-purple bg-rapunzel-pinkLight/80 hover:bg-rapunzel-pink/20 transition-all border border-rapunzel-pink/40 flex items-center gap-1.5">
+            <i class="fa-solid fa-wand-magic-sparkles text-xs text-rapunzel-pink"></i> Custom Commission
+          </button>
+        </nav>
+
+        <!-- Header Actions: Search, Wishlist, Cart, Mobile Menu Toggle -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          
+          <!-- Search Toggle Button -->
+          <button onclick="toggleSearchBar()" class="w-10 h-10 rounded-full flex items-center justify-center text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight hover:text-rapunzel-purple transition-colors relative" title="Search items">
+            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+          </button>
+
+          <!-- Wishlist Button -->
+          <button onclick="openWishlistModal()" class="w-10 h-10 rounded-full flex items-center justify-center text-rapunzel-purpleDark hover:bg-rapunzel-pinkLight hover:text-rapunzel-pink transition-colors relative" title="Wishlist">
+            <i class="fa-regular fa-heart text-lg"></i>
+            <span id="wishlistCount" class="absolute -top-0.5 -right-0.5 bg-rapunzel-pink text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+              0
+            </span>
+          </button>
+
+          <!-- Cart Slide-Over Trigger -->
+          <button onclick="toggleCartDrawer(true)" class="flex items-center gap-2 bg-gradient-to-r from-rapunzel-purple to-rapunzel-purpleDark text-white px-4 py-2.5 rounded-full shadow-fairytale hover:shadow-golden hover:scale-[1.02] active:scale-95 transition-all">
+            <i class="fa-solid fa-basket-shopping text-rapunzel-gold"></i>
+            <span class="font-display font-semibold text-sm hidden sm:inline">Bag</span>
+            <span id="cartBadge" class="bg-rapunzel-gold text-rapunzel-purpleDark font-extrabold text-xs px-2 py-0.5 rounded-full shadow-inner">
+              0
+            </span>
+          </button>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-xl flex items-center justify-center text-rapunzel-purpleDark bg-rapunzel-lavenderLight">
+            <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Expandable Search Bar -->
+      <div id="searchBarContainer" class="hidden pb-4 transition-all duration-300">
+        <div class="relative max-w-2xl mx-auto">
+          <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-rapunzel-purple/60"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleSearch(this.value)"
+            placeholder="Search Rapunzel dolls, flower hair clips, tote bags, Pascal plushies..." 
+            class="w-full pl-11 pr-10 py-3 rounded-full border-2 border-rapunzel-lavender focus:border-rapunzel-purple focus:ring-4 focus:ring-rapunzel-lavenderLight/50 bg-white text-sm outline-none transition-all"
+          />
+          <button onclick="clearSearch()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-sm">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-rapunzel-lavender/50 bg-white/95 px-4 pt-3 pb-6 space-y-2">
+      <button onclick="filterCategory('all'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight flex items-center justify-between">
+        <span>🌸 All Handmade Treasures</span>
+        <i class="fa-solid fa-chevron-right text-xs text-rapunzel-purple/50"></i>
+      </button>
+      <button onclick="filterCategory('dolls'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight flex items-center justify-between">
+        <span>👑 Princess Dolls & Plushies</span>
+        <i class="fa-solid fa-chevron-right text-xs text-rapunzel-purple/50"></i>
+      </button>
+      <button onclick="filterCategory('hair'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight flex items-center justify-between">
+        <span>🌼 Braided Hair Clips & Scrunchies</span>
+        <i class="fa-solid fa-chevron-right text-xs text-rapunzel-purple/50"></i>
+      </button>
+      <button onclick="filterCategory('bags'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-rapunzel-purpleDark hover:bg-rapunzel-lavenderLight flex items-center justify-between">
+        <span>👜 Hand-Knitted Bags & Pouches</span>
+        <i class="fa-solid fa-chevron-right text-xs text-rapunzel-purple/50"></i>
+      </button>
+      <button onclick="openCustomModal(); toggleMobileMenu()" class="w-full mt-2 text-center py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-rapunzel-gold to-rapunzel-goldHover text-rapunzel-purpleDark shadow-sm">
+        ✨ Request Custom Rapunzel Commission
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION: THE FAIRYTALE TOWER -->
+  <section class="relative overflow-hidden pt-8 pb-14 md:py-16 bg-gradient-to-b from-rapunzel-lavenderLight/70 via-rapunzel-cream to-white">
+    <!-- Decorative Sunburst & Floral vector blurs -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-rapunzel-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-20 w-80 h-80 bg-rapunzel-purple/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-5">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-rapunzel-lavender shadow-sm text-xs md:text-sm font-semibold text-rapunzel-purple">
+            <span class="w-2.5 h-2.5 rounded-full bg-rapunzel-gold animate-ping"></span>
+            <span>Inspired by Rapunzel's Magic Hair & Glowing Lanterns</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-rapunzel-purpleDark tracking-tight leading-[1.15]">
+            Best day ever with <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-rapunzel-purple via-rapunzel-pink to-rapunzel-gold">
+              handmade crochet
+            </span> wonders.
+          </h1>
+
+          <p class="text-base sm:text-lg text-rapunzel-purpleDark/80 max-w-xl mx-auto lg:mx-0 font-medium">
+            Welcome to <strong>run by yarn</strong>! Every plushie doll, floral hair clip, and cozy pouch is lovingly hand-stitched stitch by stitch with buttery soft milk cotton yarn.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#productsSection" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-rapunzel-purple to-rapunzel-purpleDark text-white font-display font-bold text-base shadow-fairytale hover:shadow-golden hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+              <span>Shop Royal Collection</span>
+              <i class="fa-solid fa-arrow-down-long text-rapunzel-gold text-sm"></i>
+            </a>
+
+            <button onclick="openCustomModal()" class="px-6 py-3.5 rounded-full bg-white border-2 border-rapunzel-lavender text-rapunzel-purpleDark font-display font-bold text-base hover:bg-rapunzel-lavenderLight hover:border-rapunzel-purple transition-all flex items-center gap-2 shadow-sm">
+              <i class="fa-solid fa-wand-sparkles text-rapunzel-gold"></i>
+              <span>Custom Crochet Order</span>
+            </button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-6 grid grid-cols-3 gap-3 border-t border-rapunzel-lavender/50 max-w-md mx-auto lg:mx-0 text-center sm:text-left">
+            <div>
+              <p class="font-display font-bold text-rapunzel-purpleDark text-lg">100%</p>
+              <p class="text-xs text-gray-500 font-medium">Milk Cotton Yarn</p>
+            </div>
+            <div>
+              <p class="font-display font-bold text-rapunzel-purpleDark text-lg">3,400+</p>
+              <p class="text-xs text-gray-500 font-medium">Happy Crafters</p>
+            </div>
+            <div>
+              <p class="font-display font-bold text-rapunzel-purpleDark text-lg">5.0 ★</p>
+              <p class="text-xs text-gray-500 font-medium">Fairytale Rating</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual / Featured Rapunzel Showcase -->
+        <div class="lg:col-span-5 relative flex justify-center">
+          <!-- Outer Sun Glow Circle -->
+          <div class="relative w-72 sm:w-80 md:w-96 aspect-square rounded-full p-3 bg-gradient-to-tr from-rapunzel-gold via-rapunzel-pink to-rapunzel-purple shadow-2xl animate-float-slow">
+            
+            <!-- Inner Frame -->
+            <div class="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner bg-rapunzel-cream relative group">
+              <img 
+                src="https://www.designarena.ai/u/4a8550f2-9608-45e2-a7d3-70e55f12e678" 
+                alt="Signature Rapunzel Crochet Doll" 
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              />
+              
+              <!-- Floating Pill Overlay -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full border border-rapunzel-lavender shadow-md flex items-center gap-2.5 whitespace-nowrap">
+                <span class="w-2.5 h-2.5 rounded-full bg-rapunzel-sage animate-pulse"></span>
+                <span class="text-xs font-bold text-rapunzel-purpleDark">Signature Princess Doll In Stock</span>
+              </div>
+            </div>
+
+            <!-- Floating Badge: Tangled Sun Tag -->
+            <div class="absolute -top-3 -right-3 bg-gradient-to-r from-rapunzel-gold to-rapunzel-goldHover text-rapunzel-purpleDark font-display font-bold text-xs p-3 rounded-full shadow-golden border-2 border-white flex flex-col items-center justify-center w-16 h-16 transform rotate-12">
+              <span class="text-[10px] uppercase tracking-tighter">Iconic</span>
+              <span class="text-sm font-extrabold">#1 Doll</span>
+            </div>
+
+            <!-- Floating Little Yarn Ball -->
+            <div class="absolute -bottom-2 -left-2 bg-white p-2.5 rounded-2xl shadow-fairytale border border-rapunzel-lavender flex items-center gap-2">
+              <span class="text-2xl">🧶</span>
+              <div>
+                <p class="text-[11px] font-bold text-rapunzel-purpleDark">Pure Handcraft</p>
+                <p class="text-[9px] text-gray-500">18+ hours per piece</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY QUICK FILTER TABS & SEARCH BANNER -->
+  <section id="productsSection" class="py-8 bg-white border-y border-rapunzel-lavender/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-rapunzel-pink flex items-center gap-1.5 font-display">
+            <i class="fa-solid fa-flower-tulip"></i> Curated Crochet Collection
+          </span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-rapunzel-purpleDark mt-1">
+            Explore Hand-Knitted Wonders ✨
+          </h2>
+        </div>
+        
+        <!-- Quick stats / filter active pill -->
+        <p class="text-sm text-gray-500 font-medium">
+          Showing <span id="visibleCount" class="font-bold text-rapunzel-purple">8</span> fairytale items
+        </p>
+      </div>
+
+      <!-- Filter Buttons Bar -->
+      <div class="flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none" id="categoryTabs">
+        <button onclick="filterCategory('all')" data-cat="all" class="cat-pill active-cat px-5 py-2.5 rounded-full text-xs sm:text-sm font-display font-semibold transition-all whitespace-nowrap bg-rapunzel-purple text-white shadow-sm">
+          🌟 All Creations
+        </button>
+        <button onclick="filterCategory('dolls')" data-cat="dolls" class="cat-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-display font-semibold transition-all whitespace-nowrap bg-rapunzel-lavenderLight text-rapunzel-purpleDark hover:bg-rapunzel-lavender/60">
+          👑 Dolls & Plushies
+        </button>
+        <button onclick="filterCategory('hair')" data-cat="hair" class="cat-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-display font-semibold transition-all whitespace-nowrap bg-rapunzel-lavenderLight text-rapunzel-purpleDark hover:bg-rapunzel-lavender/60">
+          🌼 Braided Hair Clips & Claws
+        </button>
+        <button onclick="filterCategory('bags')" data-cat="bags" class="cat-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-display font-semibold transition-all whitespace-nowrap bg-rapunzel-lavenderLight text-rapunzel-purpleDark hover:bg-rapunzel-lavender/60">
+          👜 Bags & Pouches
+        </button>
+        <button onclick="filterCategory('keychains')" data-cat="keychains" class="cat-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-display font-semibold transition-all whitespace-nowrap bg-rapunzel-lavenderLight text-rapunzel-purpleDark hover:bg-rapunzel-lavender/60">
+          🗝️ Lantern Keychains & Charms
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN PRODUCT GRID -->
+  <main class="flex-grow py-12 bg-rapunzel-cream/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Product Cards Grid Container -->
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+        <!-- Javascript dynamically injects product cards here -->
+      </div>
+
+      <!-- Empty State Container (Hidden by default) -->
+      <div id="noResults" class="hidden text-center py-16 px-4 bg-white rounded-3xl border border-rapunzel-lavender shadow-soft max-w-lg mx-auto my-6">
+        <span class="text-5xl block mb-3">🔍</span>
+        <h3 class="font-display font-bold text-xl text-rapunzel-purpleDark">No magical items matched your search</h3>
+        <p class="text-sm text-gray-500 mt-1 mb-5">Try searching for "doll", "clip", "bag", or clear the filter.</p>
+        <button onclick="resetFilters()" class="px-5 py-2.5 bg-rapunzel-purple text-white font-semibold text-xs rounded-full shadow hover:bg-rapunzel-purpleDark transition-all">
+          Reset Filter & View All
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FAIRYTALE CUSTOM COMMISSIONS BANNER -->
+  <section class="py-14 bg-gradient-to-r from-rapunzel-purpleDark via-rapunzel-purple to-rapunzel-purple text-white relative overflow-hidden">
+    <div class="absolute -right-10 -bottom-10 opacity-10 text-[200px] pointer-events-none font-display">
+      🧶
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-white/20 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        
+        <div class="max-w-2xl space-y-3 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-rapunzel-gold/20 text-rapunzel-gold px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Made Just For You
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
+            Have a Dream Character or Custom Colorway?
+          </h2>
+          <p class="text-rapunzel-lavender text-sm sm:text-base">
+            From customized Disney princess amigurumis, custom length floral braided hair clips, to personalized wedding bags. Share your idea and let us weave it into yarn!
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto justify-center">
+          <button onclick="openCustomModal()" class="px-8 py-4 rounded-full bg-rapunzel-gold text-rapunzel-purpleDark font-display font-bold text-base hover:bg-rapunzel-goldHover hover:scale-105 active:scale-95 transition-all shadow-golden flex items-center justify-center gap-2 whitespace-nowrap">
+            <i class="fa-solid fa-paintbrush"></i>
+            <span>Request Custom Order</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER LOVE & REVIEWS SECTION -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-rapunzel-purple font-display">Real Knots, Real Smiles</span>
+        <h2 class="font-display font-bold text-3xl text-rapunzel-purpleDark mt-1">
+          Words from Fairytale Lovers 💜
+        </h2>
+        <p class="text-gray-500 text-sm mt-2">See why hundreds of customers adore our plushies and braided accessories.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Review 1 -->
+        <div class="p-6 rounded-3xl bg-rapunzel-lavenderLight/50 border border-rapunzel-lavender/60 shadow-soft flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-rapunzel-gold text-sm gap-1">
+              ★★★★★
+            </div>
+            <p class="text-rapunzel-purpleDark text-sm italic font-medium">
+              "The Rapunzel doll arrived in the sweetest packaging with dried lavender flowers! The long golden braid with tiny green flowers is breathtakingly neat. True art!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-5 mt-4 border-t border-rapunzel-lavender/40">
+            <div class="w-10 h-10 rounded-full bg-rapunzel-purple/20 flex items-center justify-center font-bold text-rapunzel-purple text-xs">
+              CL
+            </div>
+            <div>
+              <p class="font-display font-bold text-xs text-rapunzel-purpleDark">Chloe Lin</p>
+              <p class="text-[11px] text-gray-500">Verified Buyer • Tower Princess Doll</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="p-6 rounded-3xl bg-rapunzel-pinkLight/50 border border-rapunzel-pink/40 shadow-soft flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-rapunzel-gold text-sm gap-1">
+              ★★★★★
+            </div>
+            <p class="text-rapunzel-purpleDark text-sm italic font-medium">
+              "I wear the Pascal chameleon keychain on my canvas tote and get compliments everywhere on campus! So sturdy, well-stitched, and doesn't fray."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-5 mt-4 border-t border-rapunzel-pink/30">
+            <div class="w-10 h-10 rounded-full bg-rapunzel-pink/30 flex items-center justify-center font-bold text-rapunzel-pink text-xs">
+              MR
+            </div>
+            <div>
+              <p class="font-display font-bold text-xs text-rapunzel-purpleDark">Maya Ramirez</p>
+              <p class="text-[11px] text-gray-500">Verified Buyer • Pascal Mini Plush</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="p-6 rounded-3xl bg-rapunzel-goldLight/60 border border-rapunzel-gold/40 shadow-soft flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-rapunzel-gold text-sm gap-1">
+              ★★★★★
+            </div>
+            <p class="text-rapunzel-purpleDark text-sm italic font-medium">
+              "The braided floral hair clip set holds thick hair so gently without pulling! Love the milk cotton softness. Will definitely order the tote bag next."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-5 mt-4 border-t border-rapunzel-gold/30">
+            <div class="w-10 h-10 rounded-full bg-rapunzel-gold/30 flex items-center justify-center font-bold text-rapunzel-goldHover text-xs">
+              SA
+            </div>
+            <div>
+              <p class="font-display font-bold text-xs text-rapunzel-purpleDark">Sophia Adams</p>
+              <p class="text-[11px] text-gray-500">Verified Buyer • Floral Braid Hair Clips</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-rapunzel-purpleDark text-white pt-14 pb-8 border-t border-rapunzel-lavender/30 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-rapunzel-lavender/20">
+        
+        <!-- Brand Summary -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img 
+              src="https://www.designarena.ai/u/4a8550f2-9608-45e2-a7d3-70e55f12e678" 
+              alt="run by yarn logo" 
+              class="w-12 h-12 rounded-full border-2 border-rapunzel-gold object-cover bg-white"
+            />
+            <div>
+              <span class="font-display font-bold text-2xl text-white block leading-none">run by yarn</span>
+              <span class="text-[11px] text-rapunzel-lavender tracking-wider uppercase font-semibold">Crochet Atelier</span>
+            </div>
+          </div>
+          <p class="text-rapunzel-lavender text-xs sm:text-sm leading-relaxed max-w-sm">
+            Handcrafting happiness, one stitch at a time. Bringing Rapunzel-inspired magic, floral accessories, plushies, and cozy knitted bags to your everyday life.
+          </p>
+          <div class="flex items-center gap-3 text-sm">
+            <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-rapunzel-gold hover:text-rapunzel-purpleDark flex items-center justify-center transition-all">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-rapunzel-gold hover:text-rapunzel-purpleDark flex items-center justify-center transition-all">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-rapunzel-gold hover:text-rapunzel-purpleDark flex items-center justify-center transition-all">
+              <i class="fa-brands fa-pinterest"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-rapunzel-gold hover:text-rapunzel-purpleDark flex items-center justify-center transition-all">
+              <i class="fa-brands fa-etsy"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Shop Links -->
+        <div class="space-y-3">
+          <h4 class="font-display font-bold text-sm text-rapunzel-gold uppercase tracking-wider">Collections</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-rapunzel-lavender font-medium">
+            <li><a href="#productsSection" onclick="filterCategory('dolls')" class="hover:text-white transition-colors">Princess Dolls</a></li>
+            <li><a href="#productsSection" onclick="filterCategory('hair')" class="hover:text-white transition-colors">Hair Clips & Bands</a></li>
+            <li><a href="#productsSection" onclick="filterCategory('bags')" class="hover:text-white transition-colors">Crochet Handbags</a></li>
+            <li><a href="#productsSection" onclick="filterCategory('keychains')" class="hover:text-white transition-colors">Keyrings & Minis</a></li>
+            <li><a href="javascript:void(0)" onclick="openCustomModal()" class="text-rapunzel-gold hover:underline">Custom Requests</a></li>
+          </ul>
+        </div>
+
+        <!-- Care & Info -->
+        <div class="space-y-3">
+          <h4 class="font-display font-bold text-sm text-rapunzel-gold uppercase tracking-wider">Yarn Care & Help</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-rapunzel-lavender font-medium">
+            <li><a href="javascript:void(0)" onclick="showCareGuide()" class="hover:text-white transition-colors">How to Wash Crochet</a></li>
+            <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Shipping & Processing</a></li>
+            <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Yarn Material Safety</a></li>
+            <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Gift Packaging</a></li>
+            <li><a href="javascript:void(0)" class="hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="space-y-3">
+          <h4 class="font-display font-bold text-sm text-rapunzel-gold uppercase tracking-wider">Fairy Mail ✨</h4>
+          <p class="text-xs text-rapunzel-lavender">Join our yarn circle for secret restock drops and free monthly crochet patterns!</p>
+          <form onsubmit="handleNewsletter(event)" class="space-y-2">
+            <input 
+              type="email" 
+              required
+              placeholder="Your royal email..." 
+              class="w-full px-3.5 py-2 rounded-xl bg-white/10 border border-rapunzel-lavender/40 text-xs text-white placeholder-rapunzel-lavender/60 focus:outline-none focus:border-rapunzel-gold"
+            />
+            <button type="submit" class="w-full py-2 rounded-xl bg-rapunzel-gold text-rapunzel-purpleDark font-display font-bold text-xs hover:bg-rapunzel-goldHover transition-colors shadow">
+              Subscribe For 10% Off
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-rapunzel-lavender/70 gap-3">
+        <p>© <span id="currentYear"></span> run by yarn. Handcrafted with love & fairytale dreams.</p>
+        <p class="flex items-center gap-2">
+          <span>Stitched with 🧶 & 💜</span>
+          <span>•</span>
+          <a href="#" class="hover:underline">Privacy Policy</a>
+          <span>•</span>
+          <a href="#" class="hover:underline">Terms</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS & DRAWERS ================= -->
+
+  <!-- 1. CART SLIDE-OVER DRAWER -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
+    <!-- Backdrop -->
+    <div id="cartBackdrop" onclick="toggleCartDrawer(false)" class="absolute inset-0 bg-black/40 backdrop-blur-xs transition-opacity duration-300 opacity-0"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div id="cartPanel" class="w-screen max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto">
+        
+        <!-- Cart Header -->
+        <div class="p-5 bg-gradient-to-r from-rapunzel-lavenderLight to-white border-b border-rapunzel-lavender flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🧺</span>
+            <h3 class="font-display font-bold text-lg text-rapunzel-purpleDark">Your Yarn Bag</h3>
+            <span id="cartDrawerBadge" class="bg-rapunzel-purple text-white text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+          </div>
+          <button onclick="toggleCartDrawer(false)" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
+            <i class="fa-solid fa-xmark text-base"></i>
+          </button>
+        </div>
+
+        <!-- Cart Items List Container -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4">
+          <!-- Populated by Javascript -->
+        </div>
+
+        <!-- Cart Summary & Checkout -->
+        <div class="p-5 border-t border-rapunzel-lavender bg-rapunzel-cream/50 space-y-3">
+          <!-- Discount Code Input -->
+          <div class="flex gap-2">
+            <input 
+              type="text" 
+              id="promoInput" 
+              placeholder="Promo Code (LANTERN10)" 
+              class="flex-1 uppercase text-xs px-3 py-2 rounded-xl border border-rapunzel-lavender focus:border-rapunzel-purple outline-none bg-white font-medium"
+            />
+            <button onclick="applyPromo()" class="px-3 py-2 bg-rapunzel-purple text-white rounded-xl text-xs font-bold hover:bg-rapunzel-purpleDark transition-colors">
+              Apply
+            </button>
+          </div>
+          
+          <div id="promoNotice" class="hidden text-xs text-rapunzel-purple font-semibold">
+            ✨ Code LANTERN10 applied! (10% OFF)
+          </div>
+
+          <!-- Total Calculation -->
+          <div class="space-y-1.5 pt-2 border-t border-rapunzel-lavender/50 text-sm">
+            <div class="flex justify-between text-gray-500 text-xs">
+              <span>Subtotal</span>
+              <span id="cartSubtotal" class="font-semibold text-gray-800">$0.00</span>
+            </div>
+            <div class="flex justify-between text-gray-500 text-xs">
+              <span>Discount</span>
+              <span id="cartDiscount" class="text-rapunzel-purple font-semibold">-$0.00</span>
+            </div>
+            <div class="flex justify-between text-gray-500 text-xs">
+              <span>Fairytale Shipping</span>
+              <span class="text-rapunzel-sage font-bold">FREE over $45</span>
+            </div>
+            <div class="flex justify-between text-base font-display font-bold text-rapunzel-purpleDark pt-2 border-t border-rapunzel-lavender">
+              <span>Grand Total</span>
+              <span id="cartGrandTotal">$0.00</span>
+            </div>
+          </div>
+
+          <button onclick="handleCheckout()" class="w-full py-3.5 rounded-full bg-gradient-to-r from-rapunzel-purple via-rapunzel-pink to-rapunzel-purple text-white font-display font-bold text-sm shadow-fairytale hover:shadow-golden hover:scale-[1.01] active:scale-98 transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-lock text-xs text-rapunzel-gold"></i>
+            <span>Proceed to Checkout</span>
+          </button>
+          
+          <p class="text-[10px] text-center text-gray-400">🔒 100% Secure Fairytale Payments • Hand-packaged with care</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. QUICK VIEW PRODUCT MODAL -->
+  <div id="quickViewModal" class="fixed inset-0 z-50 overflow-y-auto hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="relative bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-rapunzel-lavender overflow-hidden my-8 animate-fade-in">
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 shadow text-gray-600 hover:text-black flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      
+      <div id="quickViewContent" class="grid grid-cols-1 md:grid-cols-2">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CUSTOM ORDER MODAL -->
+  <div id="customOrderModal" class="fixed inset-0 z-50 overflow-y-auto hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-rapunzel-lavender my-8 animate-fade-in">
+      <button onclick="closeCustomModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-rapunzel-lavenderLight text-rapunzel-purpleDark flex items-center justify-center">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-full bg-rapunzel-gold/20 text-rapunzel-gold mx-auto flex items-center justify-center text-xl mb-2">
+          🪄
+        </div>
+        <h3 class="font-display font-bold text-2xl text-rapunzel-purpleDark">Request a Custom Creation</h3>
+        <p class="text-xs text-gray-500 mt-1">Tell us your favorite colors, Disney character, or unique hair accessory ideas!</p>
+      </div>
+
+      <form onsubmit="handleCustomSubmit(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-bold text-rapunzel-purpleDark mb-1">Your Name</label>
+          <input type="text" required placeholder="Princess or Prince name" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-rapunzel-lavender focus:border-rapunzel-purple outline-none bg-rapunzel-cream/40" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-rapunzel-purpleDark mb-1">Email for Quote & Sketches</label>
+          <input type="email" required placeholder="fairytale@example.com" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-rapunzel-lavender focus:border-rapunzel-purple outline-none bg-rapunzel-cream/40" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-rapunzel-purpleDark mb-1">Category</label>
+            <select class="w-full text-xs px-3 py-2.5 rounded-xl border border-rapunzel-lavender focus:border-rapunzel-purple outline-none bg-white">
+              <option>Amigurumi Character Doll</option>
+              <option>Floral Braid Hair Clips</option>
+              <option>Crochet Handbag / Pouch</option>
+              <option>Keyring or Charm</option>
+              <option>Other Crochet Magic</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-rapunzel-purpleDark mb-1">Desired Date</label>
+            <input type="date" class="w-full text-xs px-3 py-2 rounded-xl border border-rapunzel-lavender focus:border-rapunzel-purple outline-none bg-white" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-rapunzel-purpleDark mb-1">Project Details & Color Preferences</label>
+          <textarea rows="3" required placeholder="E.g., I'd love a Rapunzel doll with an extra long 40cm braid and extra pink & purple blossoms..." class="w-full text-xs p-3 rounded-xl border border-rapunzel-lavender focus:border-rapunzel-purple outline-none bg-rapunzel-cream/40"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-rapunzel-purple to-rapunzel-purpleDark text-white font-display font-bold text-sm shadow-fairytale hover:bg-rapunzel-purpleDark transition-all">
+          Send Custom Commission Request ✨
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. WISHLIST MODAL -->
+  <div id="wishlistModal" class="fixed inset-0 z-50 overflow-y-auto hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="relative bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-rapunzel-lavender my-8">
+      <button onclick="closeWishlistModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-rapunzel-pinkLight text-rapunzel-pink flex items-center justify-center">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-4">
+        <i class="fa-solid fa-heart text-rapunzel-pink text-xl"></i>
+        <h3 class="font-display font-bold text-xl text-rapunzel-purpleDark">Your Saved Treasures</h3>
+      </div>
+
+      <div id="wishlistItemsContainer" class="max-h-72 overflow-y-auto space-y-3 py-2">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING TOAST NOTIFICATION -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-rapunzel-purpleDark text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-rapunzel-gold flex items-center gap-3 pointer-events-none">
+    <span id="toastIcon" class="text-xl">✨</span>
+    <div>
+      <p id="toastTitle" class="font-display font-bold text-xs text-rapunzel-gold">Added to Cart!</p>
+      <p id="toastMessage" class="text-xs text-rapunzel-lavender">Your magical item is in the bag.</p>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT ENGINE ================= -->
+  <script>
+    // 1. DATA: Master Product Catalog with Rapunzel theme assets & crocheted items
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Tower Princess Handcrafted Doll",
+        category: "dolls",
+        price: 38.00,
+        originalPrice: 45.00,
+        image: "https://www.designarena.ai/u/4a8550f2-9608-45e2-a7d3-70e55f12e678",
+        badge: "👑 Signature Piece",
+        rating: 5.0,
+        reviews: 48,
+        description: "Our iconic Rapunzel amigurumi doll features an ultra-long crocheted golden yellow braid adorned with delicate pink & green blossoms, a corseted lilac dress, and baby-safe hypoallergenic milk cotton filling.",
+        details: ["Height: 24cm (9.5 inches)", "Braid Length: 32cm", "100% Milk Cotton Yarn", "Includes display wood stand"]
+      },
+      {
+        id: 2,
+        name: "Pascal Chameleon Mini Companion",
+        category: "dolls",
+        price: 16.50,
+        originalPrice: 20.00,
+        image: "https://images.unsplash.com/photo-1558877385-81a1c7e67d72?auto=format&fit=crop&w=600&q=80",
+        badge: "🦎 Best Friend",
+        rating: 4.9,
+        reviews: 32,
+        description: "The loyal sidekick every princess needs! Palm-sized chameleon with big expressive embroidered eyes, coiled tail, and vibrant grass-green textured stitches.",
+        details: ["Length: 10cm", "Color: Leaf Green & Lime", "Safety embroidered eyes", "Pocket or bag companion"]
+      },
+      {
+        id: 3,
+        name: "Sundrop Floral Hair Claw & Clip Set",
+        category: "hair",
+        price: 14.00,
+        originalPrice: null,
+        image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
+        badge: "🌸 Bestseller",
+        rating: 5.0,
+        reviews: 56,
+        description: "Set of 3 hand-stitched floral alligator clips and 1 mini golden sun hair claw. Gentle on hair, anti-snag, and brings fairytale meadow charm to any braid.",
+        details: ["Set includes: 3 clips + 1 mini claw", "Colors: Lilac, Buttercup, Blossom Pink", "No-slip alligator base"]
+      },
+      {
+        id: 4,
+        name: "Tangled Golden Braid Hair Extension Clip",
+        category: "hair",
+        price: 19.00,
+        originalPrice: 24.00,
+        image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80",
+        badge: "✨ Viral Hair Magic",
+        rating: 4.8,
+        reviews: 29,
+        description: "A clip-in crocheted golden yellow braid studded with 7 micro crochet pastel flowers. Easily clips into your ponytail, bun, or natural hair for effortless fairytale vibes.",
+        details: ["Length: 45cm", "Secure hair clip attachment", "Decorated with daisy & clover florets"]
+      },
+      {
+        id: 5,
+        name: "Sun Flower Granny Square Handbag",
+        category: "bags",
+        price: 44.00,
+        originalPrice: 52.00,
+        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80",
+        badge: "👜 Premium Knitted",
+        rating: 5.0,
+        reviews: 19,
+        description: "Stunning handmade tote composed of 13 individual sunburst granny squares in lavender, royal purple, and sunshine yellow with reinforced thick handles and full linen lining.",
+        details: ["Dimensions: 30cm x 28cm", "Interior phone pocket", "Reinforced double handles", "Lined with soft cotton"]
+      },
+      {
+        id: 6,
+        name: "Floating Lantern Glowing Charm Keyring",
+        category: "keychains",
+        price: 12.00,
+        originalPrice: null,
+        image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80",
+        badge: "🏮 Lights Up",
+        rating: 4.9,
+        reviews: 41,
+        description: "Mini crocheted Rapunzel festival lantern featuring the iconic sun emblem. Contains a mini push-switch warm LED inside for realistic fairytale festival glow!",
+        details: ["Built-in replaceable mini LED", "Gold plated star clasp", "Height: 6.5cm"]
+      },
+      {
+        id: 7,
+        name: "Lily of the Valley Fairy Hair Scrunchie",
+        category: "hair",
+        price: 11.50,
+        originalPrice: 15.00,
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80",
+        badge: "🌿 Gentle Hold",
+        rating: 4.7,
+        reviews: 22,
+        description: "Silky lilac hair scrunchie bordered with handmade miniature white bell flowers and tiny sage green leaves that dangle playfully around your messy bun.",
+        details: ["Elastic diameter: 10cm", "Super stretch inner elastic", "Soft milk cotton bells"]
+      },
+      {
+        id: 8,
+        name: "Fairytale Coin Pouch & Airpod Cozy",
+        category: "bags",
+        price: 15.00,
+        originalPrice: null,
+        image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=600&q=80",
+        badge: "🎀 Cute & Cozy",
+        rating: 4.8,
+        reviews: 17,
+        description: "A snug crocheted protective sleeve designed for Apple AirPods or lip balm and coins. Features an adorable purple corset lace-up front with bead lock.",
+        details: ["Fits AirPods 1/2/3/Pro & keys", "Metal lobster clasp attached", "Shock-absorbent thick knit"]
+      }
+    ];
+
+    // 2. STATE MANAGEMENT
+    let cart = [];
+    let wishlist = [];
+    let activeFilter = 'all';
+    let searchQuery = '';
+    let isPromoApplied = false;
+
+    // 3. INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      renderProducts();
+      updateCartUI();
+      updateWishlistUI();
+    });
+
+    // 4. RENDER PRODUCT GRID
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      const noResults = document.getElementById('noResults');
+      const visibleCount = document.getElementById('visibleCount');
+      
+      grid.innerHTML = '';
+
+      const filtered = PRODUCTS.filter(p => {
+        const matchesCat = activeFilter === 'all' || p.category === activeFilter;
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              p.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCat && matchesSearch;
+      });
+
+      visibleCount.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+
+      filtered.forEach(product => {
+        const isWishlisted = wishlist.includes(product.id);
+        const card = document.createElement('div');
+        card.className = "group bg-white rounded-3xl p-3.5 border border-rapunzel-lavender/70 shadow-soft hover:shadow-fairytale hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between";
+        
+        card.innerHTML = `
+          <div>
+            <!-- Image & Badge Container -->
+            <div class="relative aspect-square rounded-2xl overflow-hidden bg-rapunzel-cream/60 border border-rapunzel-lavender/40 mb-3.5">
+              <img 
+                src="${product.image}" 
+                alt="${product.name}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                loading="lazy"
+              />
+              
+              <!-- Badge -->
+              <span class="absolute top-2.5 left-2.5 bg-white/95 backdrop-blur-md text-rapunzel-purpleDark font-display font-bold text-[11px] px-2.5 py-1 rounded-full shadow-sm border border-rapunzel-lavender/50">
+                ${product.badge}
+              </span>
+
+              <!-- Wishlist Heart Button -->
+              <button 
+                onclick="toggleWishlist(${product.id})" 
+                class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-sm text-gray-400 hover:text-rapunzel-pink transition-colors"
+                title="Save to Wishlist"
+              >
+                <i class="${isWishlisted ? 'fa-solid text-rapunzel-pink' : 'fa-regular'} fa-heart text-sm"></i>
+              </button>
+
+              <!-- Quick View Button Overlay -->
+              <button 
+                onclick="openQuickView(${product.id})" 
+                class="absolute inset-x-3 bottom-3 py-2 rounded-xl bg-white/90 backdrop-blur-md text-rapunzel-purpleDark font-display font-semibold text-xs shadow-md opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-white"
+              >
+                <i class="fa-solid fa-eye text-rapunzel-purple"></i> Quick View
+              </button>
+            </div>
+
+            <!-- Product Meta -->
+            <div class="px-1">
+              <div class="flex items-center gap-1 text-xs text-rapunzel-gold mb-1">
+                <span>★ ${product.rating}</span>
+                <span class="text-gray-400">(${product.reviews})</span>
+              </div>
+
+              <h3 class="font-display font-bold text-base text-rapunzel-purpleDark line-clamp-1 group-hover:text-rapunzel-purple transition-colors">
+                ${product.name}
+              </h3>
+              
+              <p class="text-xs text-gray-500 line-clamp-2 mt-1 leading-relaxed font-medium">
+                ${product.description}
+              </p>
+            </div>
+          </div>
+
+          <!-- Price and Add to Bag Bar -->
+          <div class="pt-3.5 mt-3 border-t border-rapunzel-lavender/40 flex items-center justify-between px-1">
+            <div>
+              <span class="font-display font-bold text-lg text-rapunzel-purpleDark">
+                $${product.price.toFixed(2)}
+              </span>
+              ${product.originalPrice ? `<span class="text-xs text-gray-400 line-through ml-1">$${product.originalPrice.toFixed(2)}</span>` : ''}
+            </div>
+
+            <button 
+              onclick="addToCart(${product.id})" 
+              class="px-3.5 py-2 rounded-full bg-rapunzel-lavenderLight hover:bg-rapunzel-purple hover:text-white text-rapunzel-purpleDark font-display font-bold text-xs transition-all shadow-sm active:scale-95 flex items-center gap-1.5"
+            >
+              <i class="fa-solid fa-basket-shopping text-xs"></i>
+              <span>Add</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // 5. FILTER CATEGORIES & SEARCH
+    function filterCategory(cat) {
+      activeFilter = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = "cat-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-display font-semibold transition-all whitespace-nowrap bg-rapunzel-purple text-white shadow-sm";
+        } else {
+          btn.className = "cat-pill px-5 py-2.5 rounded-full text-xs sm:text-sm font-display font-semibold transition-all whitespace-nowrap bg-rapunzel-lavenderLight text-rapunzel-purpleDark hover:bg-rapunzel-lavender/60";
+        }
+      });
+      renderProducts();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.trim();
+      renderProducts();
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      searchQuery = '';
+      renderProducts();
+    }
+
+    function resetFilters() {
+      activeFilter = 'all';
+      clearSearch();
+      filterCategory('all');
+    }
+
+    function toggleSearchBar() {
+      const bar = document.getElementById('searchBarContainer');
+      bar.classList.toggle('hidden');
+      if (!bar.classList.contains('hidden')) {
+        document.getElementById('searchInput').focus();
+      }
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('mobileMenuIcon');
+      menu.classList.toggle('hidden');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-xmark');
+    }
+
+    // 6. CART MANAGEMENT (Add, Remove, Quantity, Promo)
+    function addToCart(productId, qty = 1) {
+      const item = PRODUCTS.find(p => p.id === productId);
+      if (!item) return;
+
+      const existing = cart.find(c => c.id === productId);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ ...item, qty: qty });
+      }
+
+      updateCartUI();
+      showToast(`Added "${item.name}" to your bag! 🧶`, "Fairytale Addition");
+      toggleCartDrawer(true);
+    }
+
+    function changeCartQty(productId, delta) {
+      const idx = cart.findIndex(c => c.id === productId);
+      if (idx !== -1) {
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) {
+          cart.splice(idx, 1);
+        }
+      }
+      updateCartUI();
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(c => c.id !== productId);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge = document.getElementById('cartBadge');
+      const drawerBadge = document.getElementById('cartDrawerBadge');
+      const subtotalEl = document.getElementById('cartSubtotal');
+      const discountEl = document.getElementById('cartDiscount');
+      const grandTotalEl = document.getElementById('cartGrandTotal');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge.textContent = totalItems;
+      drawerBadge.textContent = totalItems;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 space-y-3">
+            <span class="text-5xl block">🧺</span>
+            <p class="font-display font-bold text-rapunzel-purpleDark text-lg">Your bag is empty</p>
+            <p class="text-xs text-gray-400">Discover magical crochet plushies & floral hair clips to fill it!</p>
+            <button onclick="toggleCartDrawer(false)" class="mt-2 px-5 py-2 rounded-full bg-rapunzel-lavenderLight text-rapunzel-purpleDark font-semibold text-xs hover:bg-rapunzel-purple hover:text-white transition-all">
+              Start Shopping
+            </button>
+          </div>
+        `;
+        subtotalEl.textContent = "$0.00";
+        discountEl.textContent = "-$0.00";
+        grandTotalEl.textContent = "$0.00";
+        return;
+      }
+
+      container.innerHTML = '';
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+
+        const row = document.createElement('div');
+        row.className = "flex gap-3.5 p-3 rounded-2xl bg-rapunzel-lavenderLight/30 border border-rapunzel-lavender/50 items-center";
+        row.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover bg-white border border-rapunzel-lavender" />
+          <div class="flex-1 min-w-0">
+            <h4 class="font-display font-bold text-xs text-rapunzel-purpleDark truncate">${item.name}</h4>
+            <p class="text-xs text-rapunzel-purple font-semibold">$${item.price.toFixed(2)}</p>
+            
+            <!-- Qty Stepper -->
+            <div class="flex items-center gap-2 mt-2">
+              <div class="flex items-center border border-rapunzel-lavender rounded-lg bg-white overflow-hidden text-xs">
+                <button onclick="changeCartQty(${item.id}, -1)" class="w-6 h-6 flex items-center justify-center hover:bg-rapunzel-lavenderLight font-bold">-</button>
+                <span class="px-2 font-bold text-rapunzel-purpleDark">${item.qty}</span>
+                <button onclick="changeCartQty(${item.id}, 1)" class="w-6 h-6 flex items-center justify-center hover:bg-rapunzel-lavenderLight font-bold">+</button>
+              </div>
+              <button onclick="removeFromCart(${item.id})" class="text-[11px] text-red-400 hover:text-red-600 underline ml-2">Remove</button>
+            </div>
+          </div>
+          <div class="text-right font-display font-bold text-xs text-rapunzel-purpleDark">
+            $${itemTotal.toFixed(2)}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      let discount = isPromoApplied ? (subtotal * 0.10) : 0;
+      let grandTotal = subtotal - discount;
+
+      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      discountEl.textContent = `-$${discount.toFixed(2)}`;
+      grandTotalEl.textContent = `$${grandTotal.toFixed(2)}`;
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cartDrawer');
+      const backdrop = document.getElementById('cartBackdrop');
+      const panel = document.getElementById('cartPanel');
+
+      if (open) {
+        drawer.classList.remove('pointer-events-none', 'opacity-0');
+        drawer.classList.add('opacity-100');
+        backdrop.classList.add('opacity-100');
+        panel.classList.remove('translate-x-full');
+      } else {
+        panel.classList.add('translate-x-full');
+        backdrop.classList.remove('opacity-100');
+        setTimeout(() => {
+          drawer.classList.add('pointer-events-none', 'opacity-0');
+          drawer.classList.remove('opacity-100');
+        }, 300);
+      }
+    }
+
+    function applyPromo() {
+      const code = document.getElementById('promoInput').value.trim().toUpperCase();
+      const notice = document.getElementById('promoNotice');
+      if (code === 'LANTERN10' || code === 'RAPUNZEL') {
+        isPromoApplied = true;
+        notice.classList.remove('hidden');
+        updateCartUI();
+        showToast("Coupon LANTERN10 Applied! 10% Off 🎁", "Royal Promo");
+      } else {
+        alert("Try using code 'LANTERN10' for your 10% fairytale discount!");
+      }
+    }
+
+    function handleCheckout() {
+      if (cart.length === 0) {
+        alert("Your bag is empty!");
+        return;
+      }
+      alert("✨ Thank you for choosing 'run by yarn'! Redirecting to our secure fairytale checkout portal...");
+    }
+
+    // 7. QUICK VIEW MODAL
+    function openQuickView(id) {
+      const item = PRODUCTS.find(p => p.id === id);
+      if (!item) return;
+
+      const modal = document.getElementById('quickViewModal');
+      const content = document.getElementById('quickViewContent');
+
+      content.innerHTML = `
+        <div class="p-6 bg-rapunzel-cream/40 flex items-center justify-center border-b md:border-b-0 md:border-r border-rapunzel-lavender">
+          <img src="${item.image}" alt="${item.name}" class="max-h-72 w-full object-cover rounded-2xl shadow-md border-2 border-white" />
+        </div>
+        
+        <div class="p-6 md:p-8 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold text-rapunzel-purple font-display uppercase tracking-wider">${item.badge}</span>
+            <h2 class="font-display font-bold text-2xl text-rapunzel-purpleDark mt-0.5">${item.name}</h2>
+            
+            <div class="flex items-center gap-2 mt-1">
+              <span class="text-rapunzel-gold text-xs">★★★★★</span>
+              <span class="text-xs text-gray-500 font-semibold">${item.rating} (${item.reviews} reviews)</span>
+            </div>
+
+            <p class="text-2xl font-display font-bold text-rapunzel-purpleDark mt-3">
+              $${item.price.toFixed(2)}
+              ${item.originalPrice ? `<span class="text-sm text-gray-400 line-through font-normal ml-2">$${item.originalPrice.toFixed(2)}</span>` : ''}
+            </p>
+
+            <p class="text-xs text-gray-600 mt-3 leading-relaxed font-medium">
+              ${item.description}
+            </p>
+
+            <div class="mt-4 pt-3 border-t border-rapunzel-lavender/50 space-y-1">
+              <p class="text-[11px] font-bold text-rapunzel-purpleDark uppercase">Details & Specs:</p>
+              <ul class="text-xs text-gray-600 space-y-1 list-disc list-inside">
+                ${item.details.map(d => `<li>${d}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 flex gap-3">
+            <button onclick="addToCart(${item.id}); closeQuickView();" class="flex-1 py-3 rounded-full bg-gradient-to-r from-rapunzel-purple to-rapunzel-purpleDark text-white font-display font-bold text-xs shadow hover:shadow-golden transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-basket-shopping text-rapunzel-gold"></i>
+              <span>Add to Bag</span>
+            </button>
+            <button onclick="toggleWishlist(${item.id})" class="px-4 py-3 rounded-full border border-rapunzel-lavender text-rapunzel-pink hover:bg-rapunzel-pinkLight transition-all">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeQuickView() {
+      const modal = document.getElementById('quickViewModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // 8. WISHLIST MANAGEMENT
+    function toggleWishlist(id) {
+      const idx = wishlist.indexOf(id);
+      if (idx !== -1) {
+        wishlist.splice(idx, 1);
+        showToast("Removed from your saved items", "Wishlist");
+      } else {
+        wishlist.push(id);
+        const item = PRODUCTS.find(p => p.id === id);
+        showToast(`Saved "${item ? item.name : 'item'}" to your wishlist! 💖`, "Wishlist Saved");
+      }
+      updateWishlistUI();
+      renderProducts();
+    }
+
+    function updateWishlistUI() {
+      document.getElementById('wishlistCount').textContent = wishlist.length;
+      const container = document.getElementById('wishlistItemsContainer');
+      if (!container) return;
+
+      if (wishlist.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-gray-400 text-xs">
+            <p>No saved favorites yet!</p>
+            <p class="mt-1">Tap the heart on any product to save it here.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = '';
+      wishlist.forEach(id => {
+        const item = PRODUCTS.find(p => p.id === id);
+        if (!item) return;
+
+        const row = document.createElement('div');
+        row.className = "flex items-center justify-between gap-3 p-2.5 rounded-xl bg-rapunzel-lavenderLight/40 border border-rapunzel-lavender/50";
+        row.innerHTML = `
+          <div class="flex items-center gap-2.5 min-w-0">
+            <img src="${item.image}" class="w-10 h-10 rounded-lg object-cover" />
+            <div class="min-w-0">
+              <p class="font-display font-bold text-xs text-rapunzel-purpleDark truncate">${item.name}</p>
+              <p class="text-[11px] font-semibold text-rapunzel-purple">$${item.price.toFixed(2)}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button onclick="addToCart(${item.id}); toggleWishlist(${item.id});" class="text-xs px-2.5 py-1 bg-rapunzel-purple text-white rounded-lg font-bold">Add</button>
+            <button onclick="toggleWishlist(${item.id})" class="text-xs text-gray-400 hover:text-red-500 p-1"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function openWishlistModal() {
+      updateWishlistUI();
+      const m = document.getElementById('wishlistModal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeWishlistModal() {
+      const m = document.getElementById('wishlistModal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    // 9. CUSTOM ORDER & MODALS
+    function openCustomModal() {
+      const m = document.getElementById('customOrderModal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeCustomModal() {
+      const m = document.getElementById('customOrderModal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function handleCustomSubmit(e) {
+      e.preventDefault();
+      closeCustomModal();
+      showToast("Custom commission request submitted! We'll email you within 24 hours ✨", "Magic Received");
+      e.target.reset();
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast("Welcome to the yarn circle! Check your email for your 10% code 🌸", "Subscribed!");
+      e.target.reset();
+    }
+
+    function showCareGuide() {
+      alert("🧶 Crochet Care Instructions:\n1. Hand wash gently in lukewarm or cold water.\n2. Use mild wool/silk detergent.\n3. Do not wring! Press between a clean towel.\n4. Lay flat in shade to dry to maintain shape.");
+    }
+
+    // 10. TOAST NOTIFICATION UTILITY
+    let toastTimeout;
+    function showToast(message, title = "Fairytale Magic") {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastMessage').textContent = message;
+
+      clearTimeout(toastTimeout);
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
+
+akhane logo image show kortesena
